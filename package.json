@@ -1,13 +1,27 @@
 {
-    "name": "my-monorepo",
-    "private": true,
-    "workspaces": [
-      "frontend",
-      "backend"
-    ],
-    "scripts": {
-      "dev": "npm run dev --workspace frontend && npm run dev --workspace backend",
-      "build": "npm run build --workspace frontend && npm run build --workspace backend"
-    }
-  }
-  
+  "name": "PoleWikiVerticalArtistry",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "apps:dev": "npm run dev --workspace=apps/frontend & npm run start --workspace=apps/backend",
+    "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "^2.3.3",
+    "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@10.9.0",
+  "workspaces": [
+    "apps/*",
+    "apps/frontend/*",
+    "apps/backend/*",
+    "packages/*"
+  ]
+}
