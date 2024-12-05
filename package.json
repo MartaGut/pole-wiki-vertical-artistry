@@ -10,9 +10,14 @@
     "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend"
   },
   "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.13.0",
     "prettier": "^3.2.5",
     "turbo": "^2.3.3",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "typescript-eslint": "^8.17.0"
   },
   "engines": {
     "node": ">=18"
