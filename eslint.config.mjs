@@ -11,4 +11,5 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  {ignores: ["**/temp.js", "build/*", "packages", "apps/backend/dist", "apps/frontend/build", "apps/frontend/src/**.test.js", "apps/backend/.eslintrc.js", "apps/frontend/src/App.js"]}
 ];
