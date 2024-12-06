@@ -4,8 +4,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "eslint --config eslint.config.mjs .",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo lint",
+    "format:write": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
     "apps:dev": "npm run dev --workspace=apps/frontend & npm run start --workspace=apps/backend",
     "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend"
   },
@@ -14,7 +15,7 @@
     "eslint": "^9.16.0",
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.13.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.4.2",
     "turbo": "^2.3.3",
     "typescript": "5.5.4",
     "typescript-eslint": "^8.17.0"
