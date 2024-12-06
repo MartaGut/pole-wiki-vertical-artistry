@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
+    "lint": "eslint --config eslint.config.mjs .",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "apps:dev": "npm run dev --workspace=apps/frontend & npm run start --workspace=apps/backend",
     "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend"
