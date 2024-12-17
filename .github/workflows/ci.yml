@@ -1,0 +1,33 @@
+name: CI Workflow
+
+on: 
+    pull_request:
+        branches:
+            - main
+
+    push: 
+        branches: 
+            - main
+
+jobs: 
+    linting: 
+        name: Run Lint and Formatting Checks
+        runs-on: macos-latest
+
+        steps: 
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with: 
+                node-version: '18'
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run ESLint
+              run: npm run lint
+
+            - name: Run Prettier Check
+              run: npm run format:check 
