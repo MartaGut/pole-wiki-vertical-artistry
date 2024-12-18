@@ -8,7 +8,8 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
     "apps:dev": "npm run dev --workspace=apps/frontend & npm run start --workspace=apps/backend",
-    "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend"
+    "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend",
+    "db:init": "touch apps/backend/database.sqlite"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
