@@ -14,7 +14,7 @@ import { PoleFigurineModule } from './pole-figurine/pole-figurine.module';
       synchronize: true,
     }),
     TypeOrmModule.forFeature([PoleFigurine]),
-    PoleFigurineModule
+    PoleFigurineModule,
   ],
   controllers: [AppController],
   providers: [AppService],

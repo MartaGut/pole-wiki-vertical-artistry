@@ -5,12 +5,12 @@ import { PoleFigurine } from '../entities/pole-figurine.entity';
 
 @Injectable()
 export class PoleFigurineService {
-    constructor(
-        @InjectRepository(PoleFigurine)
-        private readonly poleFigurineRepository: Repository<PoleFigurine>,
-    ) {}
+  constructor(
+    @InjectRepository(PoleFigurine)
+    private readonly poleFigurineRepository: Repository<PoleFigurine>,
+  ) {}
 
-    async findAll(): Promise<PoleFigurine[]> {
-        return this.poleFigurineRepository.find();
-    }
+  async findAll(): Promise<PoleFigurine[]> {
+    return this.poleFigurineRepository.find();
+  }
 }
