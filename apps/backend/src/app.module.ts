@@ -7,13 +7,6 @@ import { PoleFigurineModule } from './pole-figurine/pole-figurine.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite', //type of db
-      database: 'database.sqlite', // location of db
-      entities: [PoleFigurine],
-      synchronize: true,
-    }),
-    TypeOrmModule.forFeature([PoleFigurine]),
     PoleFigurineModule,
   ],
   controllers: [AppController],
