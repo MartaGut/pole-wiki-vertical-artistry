@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('pole-figurine')
+@Entity('pole_figurine')
 export class PoleFigurine {
   @PrimaryGeneratedColumn()
   id: number;
