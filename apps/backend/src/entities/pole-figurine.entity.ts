@@ -1,19 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('pole_figurine')
 export class PoleFigurine {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column('text')
   name: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   tag: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   level: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   side: string;
 }

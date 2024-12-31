@@ -8,12 +8,7 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
     "apps:dev": "npm run dev --workspace=apps/frontend & npm run start --workspace=apps/backend",
-    "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend",
-    "db:init": "touch apps/backend/database.sqlite",
-    "typeorm": "typeorm-ts-node-common",
-    "migration:generate": "typeorm migration:generate -d ./apps/backend/src/data-source.ts src/migrations/CreatePoleFigurineTable",
-    "migration:run": "typeorm migration:run -d ./apps/backend/src/data-source.ts",
-    "migration:revert": "typeorm migration:revert -d ./apps/backend/src/data-source.ts"
+    "apps:build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
@@ -24,7 +19,6 @@
     "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
     "turbo": "^2.3.3",
-    "typeorm": "^0.3.20",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.17.0"
   },
