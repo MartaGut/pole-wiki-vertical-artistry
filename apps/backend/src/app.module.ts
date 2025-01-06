@@ -1,17 +1,12 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import AppDataSource from './data-source';
+import { PoleFigurineModule } from './pole-figurine/pole-figurine.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite', //type of db
-      database: 'database.sqlite', // location of db
-      entities: [],
-      synchronize: true,
-    }),
-  ],
+  imports: [TypeOrmModule.forRoot(AppDataSource.options), PoleFigurineModule],
   controllers: [AppController],
   providers: [AppService],
 })
