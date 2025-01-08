@@ -24,6 +24,6 @@ export class User {
   @Column({ type: 'text', nullable: true, unique: true })
   username: string;
 
-  @Column({ type: 'text', nullable: true, unique: true })
-  password_hash: string;
+  @Column({ type: 'text', nullable: true, unique: true, name: 'password_hash' })
+  passwordHash: string;
 }
