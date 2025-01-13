@@ -4,9 +4,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import AppDataSource from './data-source';
 import { PoleFigurineModule } from './pole-figurine/pole-figurine.module';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(AppDataSource.options), PoleFigurineModule],
+  imports: [
+    TypeOrmModule.forRoot(AppDataSource.options),
+    PoleFigurineModule,
+    UserModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
