@@ -12,7 +12,10 @@ export class UserController {
   }
 
   @Post()
-  create(@Body() createUserDto: User) {
-    return this.userService.create(createUserDto);
+  create(
+    @Body('email') email: string,
+    @Body('password') password: string,
+): Promise<User> {
+    return this.userService.create(email, password);
   }
 }

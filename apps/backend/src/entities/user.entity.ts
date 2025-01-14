@@ -15,6 +15,7 @@ export class User {
     enum: Role,
     default: Role.STUDENT,
   })
+
   @Column({ type: 'text', nullable: true })
   name: string;
 
@@ -24,6 +25,9 @@ export class User {
   @Column({ type: 'text', nullable: true, unique: true })
   username: string;
 
-  @Column({ type: 'text', nullable: true, unique: true, name: 'password_hash' })
-  passwordHash: string;
+  @Column({ type: 'text', unique: true })
+  email: string;
+
+  @Column({ type: 'text', nullable: false  })
+  password_hash: string;
 }
