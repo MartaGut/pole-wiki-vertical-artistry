@@ -12,7 +12,7 @@ export class UserService {
   ) {}
 
   private createSHA256Hash(passwordHash: string): string {
-    const hash =  crypto.createHash('sha256');
+    const hash = crypto.createHash('sha256');
     hash.update(passwordHash);
     return hash.digest('hex');
   }
@@ -22,8 +22,11 @@ export class UserService {
   }
 
   create(email: string, password: string): Promise<User> {
-    const passwordHash = this.createSHA256Hash(password)
-    const newUser = this.UserRepository.create({email, 'password_hash': passwordHash});
+    const passwordHash = this.createSHA256Hash(password);
+    const newUser = this.UserRepository.create({
+      email,
+      password_hash: passwordHash,
+    });
     return this.UserRepository.save(newUser);
   }
 }
