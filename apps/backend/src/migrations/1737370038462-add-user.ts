@@ -9,7 +9,6 @@ export class AddUser1684252000001 implements MigrationInterface {
                     "lastname" TEXT NOT NULL,
                     "username" TEXT NOT NULL UNIQUE,
                     "password_hash" TEXT NOT NULL,
-                    "email" TEXT NOT NULL UNIQUE,
                     "role" TEXT CHECK(role IN ('instructor', 'student')) NOT NULL
                 )
             `);
