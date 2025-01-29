@@ -17,6 +17,10 @@ export class UserService {
     return hash.digest('hex');
   }
 
+  async findByUsername(username: string) {
+    return this.UserRepository.findOne({ where: {username}})
+  }
+
   async findAll(): Promise<User[]> {
     return this.UserRepository.find();
   }
