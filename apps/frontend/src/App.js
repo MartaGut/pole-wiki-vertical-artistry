@@ -1,13 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
-
-function Home() {
-  return <h1>Welcome to the Home Page</h1>;
-}
-
-function Login() {
-  return <h1>Login Page</h1>;
-}
+import Home from "./components/Home";
+import Login from "./components/Login";
 
 function App() {
   return (
