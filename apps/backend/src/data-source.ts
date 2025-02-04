@@ -6,7 +6,7 @@ const AppDataSource = new DataSource({
   type: 'sqlite',
   database: 'database.sqlite',
   entities: [PoleFigurine, User],
-  migrations: ['./src/migrations/**'],
+  migrations: ['./src/migrations/**.js'],
   synchronize: false,
 });
 
