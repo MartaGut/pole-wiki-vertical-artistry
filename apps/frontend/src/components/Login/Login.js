@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Login.scss';
 
 function Login() {
 const [username, setUsername] = useState("");
@@ -34,24 +35,26 @@ const handleLogin = async (e) => {
 
     return (
       <div className='login-container'>
-        <h2>Login</h2>
+        <h2 className="page-title">Login</h2>
         {error && <p className='error-message'>{error}</p>}
-        <form onSubmit={handleLogin}>
-          <label>Username: </label>
+        <form className='form login-form' onSubmit={handleLogin}>
+          <label  className='label'>Username: </label>
           <input
+          className='input'
           type="text"
           value={username}
           onChange={(e)=>setUsername(e.target.value)}
           required
           />
-          <label>Password:</label>
+          <label className='label'>Password:</label>
           <input
+              className='input'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
           />
-          <button type="submit">Login</button>
+          <button className='button' type="submit">Login</button>
         </form>
       </div>
     );
