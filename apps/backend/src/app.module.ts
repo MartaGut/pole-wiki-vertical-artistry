@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import AppDataSource from './data-source';
 import { PoleFigurineModule } from './pole-figurine/pole-figurine.module';
 import { UserModule } from './user/user.module';
-import { AuthModule } from './auth/auth.module'
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
