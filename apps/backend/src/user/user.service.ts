@@ -1,21 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from 'src/entities/user.entity';
-import crypto from 'crypto';
-
+import { User, Role } from 'src/entities/user.entity';
+import * as bcrypt from 'bcrypt';
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private readonly UserRepository: Repository<User>,
   ) {}
-
-  private createSHA256Hash(passwordHash: string): string {
-    const hash = crypto.createHash('sha256');
-    hash.update(passwordHash);
-    return hash.digest('hex');
-  }
 
   async findByUsername(username: string) {
     return this.UserRepository.findOne({ where: { username } });
@@ -25,12 +18,30 @@ export class UserService {
     return this.UserRepository.find();
   }
 
-  create(email: string, password: string): Promise<User> {
-    const passwordHash = this.createSHA256Hash(password);
+  async create(
+    name: string,
+    lastname: string,
+    username: string,
+    email: string,
+    password_hash: string,
+    role: string,
+  ): Promise<User> {
+    if (!Object.values(Role).includes(role as Role)) {
+      throw new Error(`Invalid role: ${role}`);
+    }
+    const saltRounds = 10;
+    const passwordHash = await bcrypt.hash(password_hash, saltRounds);
+    const roleEnum = role as Role;
+
     const newUser = this.UserRepository.create({
+      name,
+      lastname,
+      username,
       email,
       password_hash: passwordHash,
+      role: roleEnum,
     });
+
     return this.UserRepository.save(newUser);
   }
 }

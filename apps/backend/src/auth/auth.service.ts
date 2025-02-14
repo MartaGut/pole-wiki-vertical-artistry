@@ -16,6 +16,7 @@ export class AuthService {
       const { password_hash, ...result } = user;
       return result;
     }
+
     throw new UnauthorizedException('Netačni podaci');
   }
 

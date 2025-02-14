@@ -10,11 +10,6 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    type: 'enum',
-    enum: Role,
-    default: Role.STUDENT,
-  })
   @Column({ type: 'text', nullable: true })
   name: string;
 
@@ -29,4 +24,10 @@ export class User {
 
   @Column({ type: 'text', nullable: false })
   password_hash: string;
+
+  @Column({
+    type: 'text',
+    nullable: false,
+  })
+  role: Role;
 }
