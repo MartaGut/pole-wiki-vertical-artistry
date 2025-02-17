@@ -17,13 +17,22 @@ export class UserController {
     @Body() createUserRequestDto: CreateUserRequestDto,
   ): Promise<CreateUserResponseDto> {
     const user = await this.userService.create(
+      createUserRequestDto.name,
+      createUserRequestDto.lastname,
+      createUserRequestDto.username,
       createUserRequestDto.email,
-      createUserRequestDto.password,
+      createUserRequestDto.password_hash,
+      createUserRequestDto.role,
     );
 
     return {
       id: user.id,
+      name: user.name,
+      lastname: user.lastname,
+      username: user.username,
       email: user.email,
+      password_hash: user.password_hash,
+      role: user.role,
     };
   }
 }
