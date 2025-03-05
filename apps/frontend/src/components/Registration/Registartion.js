@@ -41,7 +41,7 @@ function Registration() {
 
 
         try {
-            const response = await fech("http://localhost:3001/auth/register", {
+            const response = await fetch("http://localhost:3001/auth/registration", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
